@@ -41,7 +41,7 @@ export default function Header() {
                                 <Settings className="mr-2 h-4 w-4" />
                                 <span>Settings</span>
                             </DropdownMenuItem>
-                            <Link href={"#"}>
+                            <Link href={"/logout"}>
                                 <DropdownMenuItem>
                                     <LogOut className="mr-2 h-4 w-4" />
                                     <span>Logout</span>
