@@ -19,7 +19,7 @@ import Link from 'next/link'
 import { Skeleton } from "@/components/ui/skeleton"
 export default function Coins() {
     const [settings, setSettings] = useLocalstorageState<IMainPageSettings>("settings", { currency: "usd" })
-    const { coins } = CoinMarket({ currency: settings?.currency })
+    const { coins, coinsLoading } = CoinMarket({ currency: settings?.currency })
     return (
         <div className='rounded-md border'>
             <Table>
@@ -36,37 +36,39 @@ export default function Coins() {
                 </TableHeader>
                 <TableBody>
                     {/* loading */}
-                    {Array.from({ length: 20 }).map((_, i) => (
-                        <TableRow key={i}>
-                            <TableCell>
-                                <div className='flex items-center gap-2'>
-                                    <Skeleton className="h-10 w-10 rounded-full" />
-                                    <div className='flex flex-col gap-1'>
-                                        <Skeleton className="h-3.5 w-10" />
-                                        <Skeleton className="h-3 w-5" />
+                    {coinsLoading && (
+                        Array.from({ length: 20 }).map((_, i) => (
+                            <TableRow key={i}>
+                                <TableCell>
+                                    <div className='flex items-center gap-2'>
+                                        <Skeleton className="h-10 w-10 rounded-full" />
+                                        <div className='flex flex-col gap-1'>
+                                            <Skeleton className="h-3.5 w-10" />
+                                            <Skeleton className="h-3 w-5" />
+                                        </div>
                                     </div>
-                                </div>
-                            </TableCell>
-                            <TableCell>
-                                <Skeleton className="h-4 w-10" />
-                            </TableCell>
-                            <TableCell>
-                                <Skeleton className="h-4 w-10" />
-                            </TableCell>
-                            <TableCell>
-                                <Skeleton className="h-4 w-10" />
-                            </TableCell>
-                            <TableCell>
-                                <Skeleton className="h-4 w-10" />
-                            </TableCell>
-                            <TableCell>
-                                <Skeleton className="h-4 w-10" />
-                            </TableCell>
-                            <TableCell>
-                                <Skeleton className="h-4 w-10" />
-                            </TableCell>
-                        </TableRow>
-                    ))}
+                                </TableCell>
+                                <TableCell>
+                                    <Skeleton className="h-4 w-10" />
+                                </TableCell>
+                                <TableCell>
+                                    <Skeleton className="h-4 w-10" />
+                                </TableCell>
+                                <TableCell>
+                                    <Skeleton className="h-4 w-10" />
+                                </TableCell>
+                                <TableCell>
+                                    <Skeleton className="h-4 w-10" />
+                                </TableCell>
+                                <TableCell>
+                                    <Skeleton className="h-4 w-10" />
+                                </TableCell>
+                                <TableCell>
+                                    <Skeleton className="h-4 w-10" />
+                                </TableCell>
+                            </TableRow>
+                        ))
+                    )}
                     {/* list of coins */}
                     {coins?.map(coin => (
                         <TableRow key={coin.id}>
