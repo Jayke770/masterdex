@@ -16,43 +16,41 @@ export default function Header() {
     return (
         <header className={cn("p-2 z-50 sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60")}>
             <nav className='px-4 py-1 justify-between flex items-center'>
-                <div>
+                <Link href={"/"}>
                     <h1 className='font-bold text-xl'>MasterDex</h1>
-                </div>
-                <div>
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size={'icon'} className='!rounded-full'>
-                                <Avatar>
-                                    <AvatarFallback>M</AvatarFallback>
-                                </Avatar>
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
-                            align='end'
-                            className=' w-56'>
-                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuGroup>
+                </Link>
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size={'icon'} className='!rounded-full'>
+                            <Avatar>
+                                <AvatarFallback>M</AvatarFallback>
+                            </Avatar>
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                        align='end'
+                        className=' w-56'>
+                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuGroup>
+                            <DropdownMenuItem>
+                                <User className="mr-2 h-4 w-4" />
+                                <span>Profile</span>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Settings className="mr-2 h-4 w-4" />
+                                <span>Settings</span>
+                            </DropdownMenuItem>
+                            <Link href={"#"}>
                                 <DropdownMenuItem>
-                                    <User className="mr-2 h-4 w-4" />
-                                    <span>Profile</span>
+                                    <LogOut className="mr-2 h-4 w-4" />
+                                    <span>Logout</span>
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <Settings className="mr-2 h-4 w-4" />
-                                    <span>Settings</span>
-                                </DropdownMenuItem>
-                                <Link href={"#"}>
-                                    <DropdownMenuItem>
-                                        <LogOut className="mr-2 h-4 w-4" />
-                                        <span>Logout</span>
-                                    </DropdownMenuItem>
-                                </Link>
-                            </DropdownMenuGroup>
+                            </Link>
+                        </DropdownMenuGroup>
 
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
+                    </DropdownMenuContent>
+                </DropdownMenu>
             </nav>
         </header>
     )

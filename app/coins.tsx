@@ -15,6 +15,7 @@ import CoinMarket from '@/lib/coins'
 import { useLocalstorageState } from 'rooks'
 import type { IMainPageSettings } from '@/types'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import Link from 'next/link'
 export default function Coins() {
     const [settings, setSettings] = useLocalstorageState<IMainPageSettings>("settings", { currency: "usd" })
     const { coins } = CoinMarket({ currency: settings?.currency })
@@ -35,15 +36,19 @@ export default function Coins() {
                 <TableBody>
                     {coins?.map(coin => (
                         <TableRow key={coin.id}>
-                            <TableCell className='flex gap-2'>
-                                <Avatar>
-                                    <AvatarImage src={coin.image} alt={coin.name} />
-                                    <AvatarFallback>{coin.symbol?.toUpperCase()}</AvatarFallback>
-                                </Avatar>
-                                <div className='flex flex-col'>
-                                    <span className='text-base'>{coin.name}</span>
-                                    <span className='text-xs text-muted-foreground uppercase'>{coin.symbol}</span>
-                                </div>
+                            <TableCell >
+                                <Link
+                                    className='flex gap-2'
+                                    href={`/coin?id=${coin.id}`}>
+                                    <Avatar>
+                                        <AvatarImage src={coin.image} alt={coin.name} />
+                                        <AvatarFallback>{coin.symbol?.toUpperCase()}</AvatarFallback>
+                                    </Avatar>
+                                    <div className='flex flex-col'>
+                                        <span className='text-base'>{coin.name}</span>
+                                        <span className='text-xs text-muted-foreground uppercase'>{coin.symbol}</span>
+                                    </div>
+                                </Link>
                             </TableCell>
                             <TableCell>${coin.current_price?.toLocaleString()}</TableCell>
 
