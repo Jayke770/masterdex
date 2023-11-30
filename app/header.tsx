@@ -14,7 +14,7 @@ import {
 import { User, Settings, LogOut } from 'lucide-react'
 export default function Header() {
     return (
-        <header className={cn("p-2 z-50 sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60")}>
+        <header className={cn("p-2 z-10 sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60")}>
             <nav className='px-4 py-1 justify-between flex items-center'>
                 <Link href={"/"}>
                     <h1 className='font-bold text-xl'>MasterDex</h1>
