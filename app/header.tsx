@@ -11,47 +11,86 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { User, Settings, LogOut } from 'lucide-react'
+import {
+    User,
+    Settings,
+    LogOut,
+    Menu
+} from 'lucide-react'
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 export default function Header() {
     return (
-        <header className={cn("p-2 z-10 sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60")}>
-            <nav className='px-4 py-1 justify-between flex items-center'>
-                <Link href={"/"}>
-                    <h1 className='font-bold text-xl'>MasterDex</h1>
-                </Link>
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size={'icon'} className='!rounded-full'>
-                            <Avatar>
-                                <AvatarFallback>M</AvatarFallback>
-                            </Avatar>
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                        align='end'
-                        className=' w-56'>
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuGroup>
-                            <DropdownMenuItem>
-                                <User className="mr-2 h-4 w-4" />
-                                <span>Profile</span>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <Settings className="mr-2 h-4 w-4" />
-                                <span>Settings</span>
-                            </DropdownMenuItem>
-                            <Link href={"/logout"}>
+        <Sheet>
+            <header className={cn("p-2 z-10 sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60")}>
+                <nav className='px-2 py-1 justify-between flex items-center'>
+                    <div className='flex gap-2 items-center'>
+                        <SheetTrigger asChild>
+                            <Button
+                                size={"icon"}
+                                variant={"ghost"}
+                                className=' md:hidden'>
+                                <Menu />
+                            </Button>
+                        </SheetTrigger>
+                        <Link href={"/"}>
+                            <h1 className='font-bold text-xl'>MasterDex</h1>
+                        </Link>
+                    </div>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" size={'icon'} className='!rounded-full'>
+                                <Avatar>
+                                    <AvatarFallback>M</AvatarFallback>
+                                </Avatar>
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent
+                            align='end'
+                            className=' w-56'>
+                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuGroup>
                                 <DropdownMenuItem>
-                                    <LogOut className="mr-2 h-4 w-4" />
-                                    <span>Logout</span>
+                                    <User className="mr-2 h-4 w-4" />
+                                    <span>Profile</span>
                                 </DropdownMenuItem>
-                            </Link>
-                        </DropdownMenuGroup>
-
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            </nav>
-        </header>
+                                <DropdownMenuItem>
+                                    <Settings className="mr-2 h-4 w-4" />
+                                    <span>Settings</span>
+                                </DropdownMenuItem>
+                                <Link href={"/logout"}>
+                                    <DropdownMenuItem>
+                                        <LogOut className="mr-2 h-4 w-4" />
+                                        <span>Logout</span>
+                                    </DropdownMenuItem>
+                                </Link>
+                            </DropdownMenuGroup>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </nav>
+            </header>
+            {/* @ts-ignore */}
+            <SheetContent side={"left"}>
+                <SheetHeader>
+                    <SheetTitle>MasterDex</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col gap-2">
+                    <Link href={"#"}>
+                        Rug Coins
+                    </Link>
+                </div>
+            </SheetContent>
+        </Sheet>
     )
 }
