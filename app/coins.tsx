@@ -81,7 +81,7 @@ export default function Coins() {
                                         <AvatarFallback>{coin.symbol?.toUpperCase()}</AvatarFallback>
                                     </Avatar>
                                     <div className='flex flex-col'>
-                                        <span className='text-base'>{coin.name}</span>
+                                        <span className='text-base whitespace-nowrap'>{coin.name}</span>
                                         <span className='text-xs text-muted-foreground uppercase'>{coin.symbol}</span>
                                     </div>
                                 </Link>
