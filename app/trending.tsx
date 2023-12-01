@@ -17,7 +17,7 @@ export default function Trending() {
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Coin</TableHead>
-                                <TableHead>Price (BTC)</TableHead>
+                                <TableHead className=" whitespace-nowrap">Price (BTC)</TableHead>
                                 <TableHead>Score</TableHead>
                                 <TableHead className=" whitespace-nowrap">Market Cap Rank</TableHead>
                             </TableRow>
