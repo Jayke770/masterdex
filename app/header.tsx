@@ -33,60 +33,55 @@ export default function Header() {
             <header className={cn("p-2 z-10 sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60")}>
                 <nav className='px-2 py-1 justify-between flex items-center'>
                     <div className='flex gap-2 items-center'>
-                        <SheetTrigger asChild>
-                            <Button
-                                size={"icon"}
-                                variant={"ghost"}
-                                className=' md:hidden'>
-                                <Menu />
-                            </Button>
-                        </SheetTrigger>
                         <Link href={"/"}>
                             <h1 className='font-bold text-xl'>MasterDex</h1>
                         </Link>
                     </div>
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size={'icon'} className='!rounded-full'>
-                                <Avatar>
-                                    <AvatarFallback>M</AvatarFallback>
-                                </Avatar>
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
-                            align='end'
-                            className=' w-56'>
-                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuGroup>
-                                <DropdownMenuItem>
-                                    <User className="mr-2 h-4 w-4" />
-                                    <span>Profile</span>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <Settings className="mr-2 h-4 w-4" />
-                                    <span>Settings</span>
-                                </DropdownMenuItem>
-                                <Link href={"/logout"}>
+                    <div className='flex gap-2 items-center'>
+                        <SheetTrigger asChild>
+                            <Button variant={"default"} size={"sm"}>Trade</Button>
+                        </SheetTrigger>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size={'icon'} className='!rounded-full'>
+                                    <Avatar>
+                                        <AvatarFallback>M</AvatarFallback>
+                                    </Avatar>
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent
+                                align='end'
+                                className=' w-56'>
+                                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuGroup>
                                     <DropdownMenuItem>
-                                        <LogOut className="mr-2 h-4 w-4" />
-                                        <span>Logout</span>
+                                        <User className="mr-2 h-4 w-4" />
+                                        <span>Profile</span>
                                     </DropdownMenuItem>
-                                </Link>
-                            </DropdownMenuGroup>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                                    <DropdownMenuItem>
+                                        <Settings className="mr-2 h-4 w-4" />
+                                        <span>Settings</span>
+                                    </DropdownMenuItem>
+                                    <Link href={"/logout"}>
+                                        <DropdownMenuItem>
+                                            <LogOut className="mr-2 h-4 w-4" />
+                                            <span>Logout</span>
+                                        </DropdownMenuItem>
+                                    </Link>
+                                </DropdownMenuGroup>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
                 </nav>
             </header>
             {/* @ts-ignore */}
-            <SheetContent side={"left"}>
+            <SheetContent side={"bottom"}>
                 <SheetHeader>
-                    <SheetTitle>MasterDex</SheetTitle>
+                    <SheetTitle>Trade</SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col gap-2">
-                    <Link href={"#"}>
-                        Rug Coins
-                    </Link>
+                <div >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ex maxime cupiditate nisi aspernatur, voluptates quibusdam iste consequuntur, a amet, enim dolore quasi voluptatibus maiores porro aut magnam? Velit, eius!
                 </div>
             </SheetContent>
         </Sheet>
