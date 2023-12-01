@@ -17,9 +17,9 @@ import type { IMainPageSettings } from '@/types'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import Link from 'next/link'
 import { Skeleton } from "@/components/ui/skeleton"
-export default function Coins() {
-    const [settings, setSettings] = useLocalstorageState<IMainPageSettings>("settings", { currency: "usd" })
-    const { coins, coinsLoading } = CoinMarket({ currency: settings?.currency })
+import RektCoins from '@/lib/coins/rekt-coins'
+export default function data() {
+    const { rektCoins, rektCoinsLoading } = RektCoins()
     return (
         <div className='rounded-md border'>
             <Table>
@@ -36,7 +36,7 @@ export default function Coins() {
                 </TableHeader>
                 <TableBody>
                     {/* loading */}
-                    {(coinsLoading || !coins) && (
+                    {(rektCoinsLoading || !rektCoins) && (
                         Array.from({ length: 20 }).map((_, i) => (
                             <TableRow key={i}>
                                 <TableCell>
@@ -70,7 +70,7 @@ export default function Coins() {
                         ))
                     )}
                     {/* list of coins */}
-                    {coins?.map(coin => (
+                    {rektCoins?.map(coin => (
                         <TableRow key={coin.id}>
                             <TableCell >
                                 <Link
@@ -90,7 +90,7 @@ export default function Coins() {
                                     </div>
                                 </Link>
                             </TableCell>
-                            <TableCell>${(coin?.current_price ?? 0) < 1 ? coin.current_price: coin.current_price?.toLocaleString()}</TableCell>
+                            <TableCell>${(coin?.current_price ?? 0) < 1 ? coin.current_price : coin.current_price?.toLocaleString()}</TableCell>
 
                             {(coin as any).price_change_percentage_1h_in_currency < 0 ? (
                                 <TableCell className="text-red-500">
