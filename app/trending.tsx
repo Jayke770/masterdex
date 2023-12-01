@@ -17,9 +17,9 @@ export default function Trending() {
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Coin</TableHead>
+                                <TableHead>Price (BTC)</TableHead>
                                 <TableHead>Score</TableHead>
                                 <TableHead className=" whitespace-nowrap">Market Cap Rank</TableHead>
-                                <TableHead>Price (BTC)</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -65,9 +65,9 @@ export default function Trending() {
                                             </div>
                                         </Link>
                                     </TableCell>
+                                    <TableCell className=" whitespace-nowrap">{coin.item?.price_btc.toFixed(18)}</TableCell>
                                     <TableCell>{coin.item?.market_cap_rank}</TableCell>
-                                    <TableCell>{coin.item?.score}</TableCell>
-                                    <TableCell className=" whitespace-nowrap">{coin.item?.price_btc.toFixed(8)}</TableCell>
+                                    <TableCell className="text-center">{coin.item?.score}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
