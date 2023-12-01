@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { coingeckoClient } from '@lib/coingecko'
 const { REKT_COINS } = process.env
+export const revalidate = 60 * 120;
 export async function GET(req: NextRequest) {
     try {
         const currency = req.nextUrl.searchParams.get("currency") ?? "usd"
