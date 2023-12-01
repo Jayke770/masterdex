@@ -42,6 +42,9 @@ export default function Trending() {
                                         <TableCell>
                                             <Skeleton className="h-4 w-10" />
                                         </TableCell>
+                                        <TableCell>
+                                            <Skeleton className="h-4 w-10" />
+                                        </TableCell>
                                     </TableRow>
                                 ))
                             )}
