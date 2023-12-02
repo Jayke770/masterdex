@@ -11,7 +11,6 @@ export async function GET(req: NextRequest) {
         const data: { tokens: IListToken[] } = await fetch(tokenListEndpoint).then(res => res.json())
         return NextResponse.json(data?.tokens ?? [])
     } catch (e: any) {
-        console.error(e)
-        return NextResponse.json({ messsage: e.message }, { status: 500 })
+        return NextResponse.json(null, { status: 500 })
     }
 } 
