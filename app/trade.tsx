@@ -73,7 +73,7 @@ export default function Trade() {
                 </div>
                 <div className="my-3">
                     <div className="flex justify-between items-baseline">
-                        <span className="text-sm font-thin">Slippage Tolerance</span>
+                        <span className="text-sm font-light ">Slippage Tolerance</span>
                         <span className="text-base text-primary">0.5%</span>
                     </div>
                 </div>
