@@ -114,7 +114,7 @@ export default function Trade() {
                             </Button>
                         ))
                     )}
-                    {listTokens?.slice(0, 100).map(token => (
+                    {listTokens?.slice(0, 100)?.map(token => (
                         <Button
                             key={token.address}
                             variant={"ghost"}
