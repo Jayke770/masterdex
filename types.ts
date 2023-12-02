@@ -21,3 +21,12 @@ export interface Trending extends TrendingResponse {
     coins: { item?: TrendingCoin }[],
     nfts: TrendingNft[]
 }
+const ListToken = z.object({
+    name: z.string(),
+    symbol: z.string(),
+    address: z.string(),
+    chainId: z.number(),
+    decimals: z.number(),
+    logoURI: z.string()
+})
+export type IListToken = z.infer<typeof ListToken>
