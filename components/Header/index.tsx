@@ -18,14 +18,10 @@ import {
 } from 'lucide-react'
 import {
     DialogContent,
-    DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
 import { type ReactNode } from 'react'
 export default function DefaultHeader({ children }: { children: ReactNode }) {
     return (
