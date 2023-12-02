@@ -1,6 +1,7 @@
 import { coingeckoClient } from '@lib/coingecko'
 import { NextResponse, NextRequest } from 'next/server';
 export const revalidate = 60 * 120;
+export const dynamic = 'force-dynamic'
 export async function GET(req: NextRequest) {
     try {
         const currency = req.nextUrl.searchParams.get("currency") ?? "usd"

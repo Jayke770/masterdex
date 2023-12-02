@@ -42,7 +42,7 @@ export default function DefaultHeader({ children }: { children: ReactNode }) {
                             <Button
                                 className=''
                                 variant={"default"}
-                                size={"sm"}>Trade 2</Button>
+                                size={"sm"}>Trade</Button>
                         </DialogTrigger>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
