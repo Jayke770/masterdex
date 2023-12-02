@@ -1,6 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { SUPPORTED_CHAINS } from '@lib/constants'
 import { type IListToken } from '@/types'
+export const dynamic = 'force-dynamic'
+export const revalidate = 60 * 120;
 export async function GET(req: NextRequest) {
     const chainId = req.nextUrl.searchParams.get("chainId") ?? "1"
     try {
